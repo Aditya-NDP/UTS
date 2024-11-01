@@ -1,0 +1,48 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package BMI;
+    import java.util.Scanner;
+
+public class Bmi {
+    
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Masukkan berat badan Anda dalam kilograam(kg): ");
+        double weight = input.nextDouble();
+
+        System.out.print("Masukkan tinggi badan Anda dalam meter(m): ");
+        double height = input.nextDouble();
+
+        double bmi = calculateBMI(weight, height);
+
+        System.out.printf("BMI Anda adalah: %.2f\n", bmi);
+        System.out.println("Anda berada dalam kategori: " + getCategory(bmi));
+
+        input.close();
+    }
+
+    public static double calculateBMI(double weight, double height) {
+        return weight / (height * height);
+    }
+
+    public static String getCategory(double bmi) {
+        if (bmi < 18.5) {
+            return "Kekurangan berat badan";
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            return "Berat badan normal";
+        } else if (bmi >= 25 && bmi < 29.9) {
+            return "Kelebihan berat badan";
+        } else {
+            return "Obesitas";
+        }
+    }
+}
+
+    
+   
+
